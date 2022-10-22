@@ -40,8 +40,8 @@ public class EnderecoService {
 		return enderecoRepository.save(enderecoExistenteNoBanco);
 	}
 	
-	public String deleteEndereco(Integer id) {
+	public Endereco deleteEndereco(Integer id) {
 		enderecoRepository.deleteById(id);
-		return "Endereço excluído";
+		return null;
 	}
 }
