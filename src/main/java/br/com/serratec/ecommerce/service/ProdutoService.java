@@ -21,7 +21,7 @@ public class ProdutoService {
 
 	@Autowired
 	CategoriaService categoriaService;
-<<<<<<< HEAD
+
 */	
 	
 //	@Autowired
@@ -32,23 +32,22 @@ public class ProdutoService {
 //	
 //	@Value("${imgbb.host.key}")
 //    private String imgBBHostKey;
-=======
+
 		
-	@Autowired
-	EmailService emailService;
+//	@Autowired
+//	EmailService emailService;
 	
 	@Value("${imgbb.host.url}")
 	private String imgBBHostUrl;
 	
 	@Value("${imgbb.host.key}")
     private String imgBBHostKey;
-*/
->>>>>>> 7a22df5d4842d4946f5e08216b335e2530228a81
+
 	
 	public List<Produto> getAllProdutos(){
 		return produtoRepository.findAll();
 	}
-<<<<<<< HEAD
+
 	
 //	public List<ProdutoDTO> getAllProdutosDTO(){
 //		List<Produto> listaProduto = produtoRepository.findAll();
@@ -67,8 +66,7 @@ public class ProdutoService {
 //		
 //		//5. Retornar/devolver a lista de DTO preenchida
 //		return listaProdutoDTO; 
-//	}
-=======
+
 
 /*	
 	public List<ProdutoDTO> getAllProdutosDTO(){
@@ -90,7 +88,7 @@ public class ProdutoService {
 		return listaProdutoDTO; 
 	}
 */
->>>>>>> 7a22df5d4842d4946f5e08216b335e2530228a81
+
 	
 	public Produto getProdutoById(Integer id) {
 		return produtoRepository.findById(id).orElse(null);
@@ -100,7 +98,7 @@ public class ProdutoService {
 		return produtoRepository.save(produto);
 	}
 
-<<<<<<< HEAD
+
 //	public ProdutoDTO saveProdutoDTO(ProdutoDTO produtoDTO) {
 //		Produto produto = toEntidade(produtoDTO);
 //		Produto novaProduto = produtoRepository.save(produto);
@@ -108,7 +106,7 @@ public class ProdutoService {
 //		ProdutoDTO produtoAtualizadaDTO = toDTO(novaProduto);
 //		return produtoAtualizadaDTO;
 //	}
-=======
+
 /*	
 	public ProdutoDTO saveProdutoDTO(ProdutoDTO produtoDTO) {
 		Produto produto = toEntidade(produtoDTO);
@@ -117,7 +115,7 @@ public class ProdutoService {
 		ProdutoDTO produtoAtualizadaDTO = toDTO(novaProduto);
 		return produtoAtualizadaDTO;
 	}
->>>>>>> 7a22df5d4842d4946f5e08216b335e2530228a81
+
 	
 
 	public ProdutoDTO saveProdutoDTOOtimizado(ProdutoDTO produtoDTO) {
@@ -186,22 +184,6 @@ public class ProdutoService {
 //		
 //		return produtoDTO;
 //	}
-=======
-		
-
-		produtoDTO.setIdProduto(produto.getIdProduto());
-		produtoDTO.setNome(produto.getNome());
-		produtoDTO.setDescricao(produto.getDescricao());
-		produtoDTO.setQtdEstoque(produto.getQtdEstoque());
-		produtoDTO.setDataCadastro(produto.getDataCadastro());
-		produtoDTO.setValorUnitario(produto.getValorUnitario());
-		produtoDTO.setImagem(produto.getImagem());
-		produtoDTO.setCategoria(produto.getCategoria());
-		
-		return produtoDTO;
-	}
-*/
->>>>>>> 7a22df5d4842d4946f5e08216b335e2530228a81
 	
 	public Produto updateProduto(Produto produto, Integer id) {
 		//Produto produtoExistenteNoBanco = produtoRepository.findById(id).get();
@@ -218,7 +200,7 @@ public class ProdutoService {
 		return getProdutoById(id);
 	}
 
-<<<<<<< HEAD
+}
 	
 //	public List<CategoriaDTO> getAllCategoriasDTO(){
 //		List<Categoria> listaCategoria = categoriaRepository.findAll();
@@ -323,8 +305,7 @@ public class ProdutoService {
 		return getProdutoById(id);
 	}
 	*/
-}
-=======
+
 /*	
 	public List<CategoriaDTO> getAllCategoriasDTO(){
 		List<Categoria> listaCategoria = categoriaRepository.findAll();
@@ -349,5 +330,4 @@ public class ProdutoService {
 	}
 
 */
-}
->>>>>>> 7a22df5d4842d4946f5e08216b335e2530228a81
+

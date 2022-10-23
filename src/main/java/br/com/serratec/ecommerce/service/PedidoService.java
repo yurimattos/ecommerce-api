@@ -5,10 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 7a22df5d4842d4946f5e08216b335e2530228a81
 import br.com.serratec.ecommerce.entity.Pedido;
 import br.com.serratec.ecommerce.repository.PedidoRepository;
 
@@ -64,7 +60,7 @@ public class PedidoService {
 		return getPedidoById(id);
 	}
 	
-<<<<<<< HEAD
+
 //	public Pedido toEntidade(PedidoDTO pedidoDTO ) {
 //		Pedido pedido = new Pedido();
 //		
@@ -77,7 +73,7 @@ public class PedidoService {
 //		
 //		return pedido;
 //	}
-=======
+
 /*	
 	public Pedido toEntidade(PedidoDTO pedidoDTO ) {
 		Pedido pedido = new Pedido();
@@ -91,7 +87,7 @@ public class PedidoService {
 		
 		return pedido;
 	}
->>>>>>> 7a22df5d4842d4946f5e08216b335e2530228a81
+
 	
 //	public PedidoDTO toDTO(Pedido pedido) {
 //		PedidoDTO pedidoDTO = new PedidoDTO();
@@ -110,7 +106,7 @@ public class PedidoService {
 //		return pedidoDTO;
 //	}
 	
-<<<<<<< HEAD
+
 //	public PedidoResumoDTO toPedidoResumoDTO(Pedido pedido) {
 //		PedidoResumoDTO pedidoResumoDTO = new PedidoResumoDTO();
 //		
@@ -119,7 +115,7 @@ public class PedidoService {
 //		
 //		return pedidoResumoDTO;
 //	}
-=======
+
 	public PedidoResumoDTO toPedidoResumoDTO(Pedido pedido) {
 		PedidoResumoDTO pedidoResumoDTO = new PedidoResumoDTO();
 		
@@ -130,5 +126,5 @@ public class PedidoService {
 	}
 */	
 	
->>>>>>> 7a22df5d4842d4946f5e08216b335e2530228a81
+
 }

@@ -17,7 +17,7 @@ public class ItemPedidoService {
 	public List<ItemPedido> getAllItemPedidos(){
 		return itemPedidoRepository.findAll();
 	}
-<<<<<<< HEAD
+
 	
 //	public List<ItemPedidoDTO> getAllItemPedidosDTO(){
 //		List<ItemPedido> listaItemPedido = itemPedidoRepository.findAll();
@@ -30,7 +30,7 @@ public class ItemPedidoService {
 //		
 //		return listaItemPedidoDTO;
 //	}
-=======
+
 
 /*
 	public List<ItemPedidoDTO> getAllItemPedidosDTO(){
@@ -45,7 +45,6 @@ public class ItemPedidoService {
 		return listaItemPedidoDTO;
 	}
 */
->>>>>>> 7a22df5d4842d4946f5e08216b335e2530228a81
 	
 	public ItemPedido getItemPedidoById(Integer id) {
 		//return itemPedidoRepository.findById(id).get();
@@ -79,7 +78,7 @@ public class ItemPedidoService {
 		return getItemPedidoById(id);
 	}
 	
-<<<<<<< HEAD
+
 //	public ItemPedido toEntidade(ItemPedidoDTO itemPedidoDTO ) {
 //		ItemPedido itemPedido = new ItemPedido();
 //		
@@ -118,7 +117,7 @@ public class ItemPedidoService {
 //		
 //		return itemPedidoResumoDTO;
 //	}
-=======
+
 /*	
 	public ItemPedido toEntidade(ItemPedidoDTO itemPedidoDTO ) {
 		ItemPedido itemPedido = new ItemPedido();
@@ -159,6 +158,6 @@ public class ItemPedidoService {
 		return itemPedidoResumoDTO;
 	}
 */
->>>>>>> 7a22df5d4842d4946f5e08216b335e2530228a81
+
 	
 }
