@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -30,8 +32,10 @@ public class Pedido {
 	private String status;
 	
 	@Column(name = "valor_total")
-	private Float valorTotal;
+	private Double valorTotal;
 	
+	@ManyToOne
+	@JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
 	private Cliente cliente;
 
 	public Integer getIdPedido() {
@@ -74,11 +78,11 @@ public class Pedido {
 		this.status = status;
 	}
 
-	public Float getValorTotal() {
+	public Double getValorTotal() {
 		return valorTotal;
 	}
 
-	public void setValorTotal(Float valorTotal) {
+	public void setValorTotal(Double valorTotal) {
 		this.valorTotal = valorTotal;
 	}
 

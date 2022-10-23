@@ -1,15 +1,22 @@
 package br.com.serratec.ecommerce.entity;
 
 import java.time.Instant;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "cliente")
@@ -33,13 +40,19 @@ public class Cliente {
 	private String cpf;
 	
 	@Column(name = "telefone")
-	private Integer telefone;
+	private String telefone;
 	
 	@Column(name = "data_nascimento")
 	private Instant dataNascimento;
 	
-	Endereco endereco;
+	
+	@OneToOne(mappedBy = "cliente")
+	private Endereco endereco;
+	
+	@OneToMany(mappedBy = "cliente")
+	private List<Pedido> listaPedidos;
 
+	
 	public Integer getIdCliente() {
 		return idCliente;
 	}
@@ -72,11 +85,11 @@ public class Cliente {
 		this.cpf = cpf;
 	}
 
-	public Integer getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
 
-	public void setTelefone(Integer telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 
@@ -94,6 +107,14 @@ public class Cliente {
 
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
+	}
+
+	public List<Pedido> getListaPedidos() {
+		return listaPedidos;
+	}
+
+	public void setListaPedidos(List<Pedido> listaPedidos) {
+		this.listaPedidos = listaPedidos;
 	}
 	
 	

@@ -2,12 +2,16 @@ package br.com.serratec.ecommerce.entity;
 
 import java.sql.Blob;
 import java.time.Instant;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -15,7 +19,7 @@ import javax.persistence.Table;
 public class Produto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idproduto")
+	@Column(name = "id_produto")
 	private Integer idProduto;
 	
 	@Column(name = "nome")
@@ -25,18 +29,23 @@ public class Produto {
 	private String descricao;
 	
 	@Column(name = "qtd_estoque")
-	private Float qtdEstoque;
+	private Double qtdEstoque;
 	
 	@Column(name = "data_cadastro")
 	private Instant dataCadastro;
 	
 	@Column(name = "valor_unitario")
-	private Float valorUnitario;
+	private Double valorUnitario;
 	
 	@Column(name = "imagem")
 	private Blob imagem;
 	
+	@ManyToOne
+	@JoinColumn(name = "categoria", referencedColumnName = "id_categoria")
 	private Categoria categoria;
+	
+	@OneToMany
+	private List<ItemPedido> itemPedidos;
 
 	public Integer getIdProduto() {
 		return idProduto;
@@ -62,11 +71,11 @@ public class Produto {
 		this.descricao = descricao;
 	}
 
-	public Float getQtdEstoque() {
+	public Double getQtdEstoque() {
 		return qtdEstoque;
 	}
 
-	public void setQtdEstoque(Float qtdEstoque) {
+	public void setQtdEstoque(Double qtdEstoque) {
 		this.qtdEstoque = qtdEstoque;
 	}
 
@@ -78,11 +87,11 @@ public class Produto {
 		this.dataCadastro = dataCadastro;
 	}
 
-	public Float getValorUnitario() {
+	public Double getValorUnitario() {
 		return valorUnitario;
 	}
 
-	public void setValorUnitario(Float valorUnitario) {
+	public void setValorUnitario(Double valorUnitario) {
 		this.valorUnitario = valorUnitario;
 	}
 
@@ -100,6 +109,14 @@ public class Produto {
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
+	}
+
+	public List<ItemPedido> getItemPedidos() {
+		return itemPedidos;
+	}
+
+	public void setItemPedidos(List<ItemPedido> itemPedidos) {
+		this.itemPedidos = itemPedidos;
 	}
 	
 	

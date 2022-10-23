@@ -9,6 +9,7 @@ import br.com.serratec.ecommerce.entity.Endereco;
 import br.com.serratec.ecommerce.repository.EnderecoRepository;
 
 @Service
+
 public class EnderecoService {
 	@Autowired
 	EnderecoRepository enderecoRepository;

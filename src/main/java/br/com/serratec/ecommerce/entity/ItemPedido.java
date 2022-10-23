@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,22 +18,26 @@ public class ItemPedido {
 	private Integer idItemPedido;
 	
 	@Column(name = "quantidade")
-	private Float quantidade;
+	private Double quantidade;
 	
 	@Column(name = "preco_venda")
-	private Float precoVenda;
+	private Double precoVenda;
 	
 	@Column(name = "percentual_desconto")
-	private Float percentualDesconto;
+	private Double percentualDesconto;
 	
 	@Column(name = "valor_bruto")
-	private Float valorBruto;
+	private Double valorBruto;
 	
 	@Column(name = "valor_liquido")
-	private Float valorLiquido;
+	private Double valorLiquido;
 	
+	@ManyToOne
+	@JoinColumn(name = "id_pedido", referencedColumnName = "id_pedido")
 	Pedido pedido;
 	
+	@ManyToOne
+	@JoinColumn(name = "id_produto", referencedColumnName = "id_produto")
 	Produto produto;
 
 	public Integer getIdItemPedido() {
@@ -42,43 +48,43 @@ public class ItemPedido {
 		this.idItemPedido = idItemPedido;
 	}
 
-	public Float getQuantidade() {
+	public Double getQuantidade() {
 		return quantidade;
 	}
 
-	public void setQuantidade(Float quantidade) {
+	public void setQuantidade(Double quantidade) {
 		this.quantidade = quantidade;
 	}
 
-	public Float getPrecoVenda() {
+	public Double getPrecoVenda() {
 		return precoVenda;
 	}
 
-	public void setPrecoVenda(Float precoVenda) {
+	public void setPrecoVenda(Double precoVenda) {
 		this.precoVenda = precoVenda;
 	}
 
-	public Float getPercentualDesconto() {
+	public Double getPercentualDesconto() {
 		return percentualDesconto;
 	}
 
-	public void setPercentualDesconto(Float percentualDesconto) {
+	public void setPercentualDesconto(Double percentualDesconto) {
 		this.percentualDesconto = percentualDesconto;
 	}
 
-	public Float getValorBruto() {
+	public Double getValorBruto() {
 		return valorBruto;
 	}
 
-	public void setValorBruto(Float valorBruto) {
+	public void setValorBruto(Double valorBruto) {
 		this.valorBruto = valorBruto;
 	}
 
-	public Float getValorLiquido() {
+	public Double getValorLiquido() {
 		return valorLiquido;
 	}
 
-	public void setValorLiquido(Float valorLiquido) {
+	public void setValorLiquido(Double valorLiquido) {
 		this.valorLiquido = valorLiquido;
 	}
 

@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -26,6 +27,7 @@ public class Categoria {
 	@Column(name = "descricao", unique = true)
 	private String descricao;
 	
+	@OneToMany(mappedBy="categoria")
 	private List<Produto> produtos;
 
 	public Integer getIdCategoria() {
