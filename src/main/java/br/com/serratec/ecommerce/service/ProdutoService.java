@@ -37,11 +37,11 @@ public class ProdutoService {
 //	@Autowired
 //	EmailService emailService;
 	
-	@Value("${imgbb.host.url}")
-	private String imgBBHostUrl;
-	
-	@Value("${imgbb.host.key}")
-    private String imgBBHostKey;
+//	@Value("${imgbb.host.url}")
+//	private String imgBBHostUrl;
+//	
+//	@Value("${imgbb.host.key}")
+//    private String imgBBHostKey;
 
 	
 	public List<Produto> getAllProdutos(){
