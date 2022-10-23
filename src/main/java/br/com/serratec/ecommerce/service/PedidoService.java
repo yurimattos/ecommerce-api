@@ -7,8 +7,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.residencia.biblioteca.dto.PedidoDTO;
-import br.com.residencia.biblioteca.dto.PedidoResumoDTO;
+
 import br.com.serratec.ecommerce.entity.Pedido;
 import br.com.serratec.ecommerce.repository.PedidoRepository;
 
@@ -64,6 +63,7 @@ public class PedidoService {
 		return getPedidoById(id);
 	}
 	
+/*	
 	public Pedido toEntidade(PedidoDTO pedidoDTO ) {
 		Pedido pedido = new Pedido();
 		
@@ -102,4 +102,6 @@ public class PedidoService {
 		
 		return pedidoResumoDTO;
 	}
+*/	
+	
 }

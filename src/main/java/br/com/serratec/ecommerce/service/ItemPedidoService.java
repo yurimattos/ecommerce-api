@@ -1,14 +1,10 @@
 package br.com.serratec.ecommerce.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.residencia.biblioteca.dto.ItemPedidoDTO;
-import br.com.residencia.biblioteca.dto.ItemPedidoResumoDTO;
 import br.com.serratec.ecommerce.entity.ItemPedido;
 import br.com.serratec.ecommerce.repository.ItemPedidoRepository;
 
@@ -21,7 +17,8 @@ public class ItemPedidoService {
 	public List<ItemPedido> getAllItemPedidos(){
 		return itemPedidoRepository.findAll();
 	}
-	
+
+/*
 	public List<ItemPedidoDTO> getAllItemPedidosDTO(){
 		List<ItemPedido> listaItemPedido = itemPedidoRepository.findAll();
 		List<ItemPedidoDTO> listaItemPedidoDTO = new ArrayList<>();
@@ -33,6 +30,7 @@ public class ItemPedidoService {
 		
 		return listaItemPedidoDTO;
 	}
+*/
 	
 	public ItemPedido getItemPedidoById(Integer id) {
 		//return itemPedidoRepository.findById(id).get();
@@ -66,6 +64,7 @@ public class ItemPedidoService {
 		return getItemPedidoById(id);
 	}
 	
+/*	
 	public ItemPedido toEntidade(ItemPedidoDTO itemPedidoDTO ) {
 		ItemPedido itemPedido = new ItemPedido();
 		
@@ -104,5 +103,6 @@ public class ItemPedidoService {
 		
 		return itemPedidoResumoDTO;
 	}
+*/
 	
 }
