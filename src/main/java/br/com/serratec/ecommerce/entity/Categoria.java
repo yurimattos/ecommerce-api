@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @JsonIdentityInfo(
 		generator = ObjectIdGenerators.PropertyGenerator.class,
-		property = "codigoCategoria")
+		property = "idCategoria")
 @Entity
 @Table(name = "categoria")
 public class Categoria {

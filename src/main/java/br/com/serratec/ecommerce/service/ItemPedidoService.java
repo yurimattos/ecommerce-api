@@ -7,8 +7,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.residencia.biblioteca.dto.ItemPedidoDTO;
-import br.com.residencia.biblioteca.dto.ItemPedidoResumoDTO;
 import br.com.serratec.ecommerce.entity.ItemPedido;
 import br.com.serratec.ecommerce.repository.ItemPedidoRepository;
 
@@ -22,17 +20,17 @@ public class ItemPedidoService {
 		return itemPedidoRepository.findAll();
 	}
 	
-	public List<ItemPedidoDTO> getAllItemPedidosDTO(){
-		List<ItemPedido> listaItemPedido = itemPedidoRepository.findAll();
-		List<ItemPedidoDTO> listaItemPedidoDTO = new ArrayList<>();
-		
-		for(ItemPedido itemPedido: listaItemPedido) {
-			ItemPedidoDTO itemPedidoDTO = toDTO(itemPedido);
-			listaItemPedidoDTO.add(itemPedidoDTO);
-		}
-		
-		return listaItemPedidoDTO;
-	}
+//	public List<ItemPedidoDTO> getAllItemPedidosDTO(){
+//		List<ItemPedido> listaItemPedido = itemPedidoRepository.findAll();
+//		List<ItemPedidoDTO> listaItemPedidoDTO = new ArrayList<>();
+//		
+//		for(ItemPedido itemPedido: listaItemPedido) {
+//			ItemPedidoDTO itemPedidoDTO = toDTO(itemPedido);
+//			listaItemPedidoDTO.add(itemPedidoDTO);
+//		}
+//		
+//		return listaItemPedidoDTO;
+//	}
 	
 	public ItemPedido getItemPedidoById(Integer id) {
 		//return itemPedidoRepository.findById(id).get();
@@ -66,43 +64,43 @@ public class ItemPedidoService {
 		return getItemPedidoById(id);
 	}
 	
-	public ItemPedido toEntidade(ItemPedidoDTO itemPedidoDTO ) {
-		ItemPedido itemPedido = new ItemPedido();
-		
-		itemPedido.setIdItemPedido(itemPedidoDTO.getIdItemPedido());
-		itemPedido.setQuantidade(itemPedidoDTO.getQuantidade());
-		itemPedido.setPrecoVenda(itemPedidoDTO.getPrecoVenda());
-		itemPedido.setPercentualDesconto(itemPedidoDTO.getPercentualDesconto());
-		itemPedido.setValorBruto(itemPedidoDTO.getValorBruto());
-		itemPedido.setValorLiquido(itemPedidoDTO.getValorLiquido());
-		itemPedido.setPedido(itemPedidoDTO.getPedido());
-		itemPedido.setProduto(itemPedidoDTO.getProduto());
-		
-		return itemPedido;
-	}
+//	public ItemPedido toEntidade(ItemPedidoDTO itemPedidoDTO ) {
+//		ItemPedido itemPedido = new ItemPedido();
+//		
+//		itemPedido.setIdItemPedido(itemPedidoDTO.getIdItemPedido());
+//		itemPedido.setQuantidade(itemPedidoDTO.getQuantidade());
+//		itemPedido.setPrecoVenda(itemPedidoDTO.getPrecoVenda());
+//		itemPedido.setPercentualDesconto(itemPedidoDTO.getPercentualDesconto());
+//		itemPedido.setValorBruto(itemPedidoDTO.getValorBruto());
+//		itemPedido.setValorLiquido(itemPedidoDTO.getValorLiquido());
+//		itemPedido.setPedido(itemPedidoDTO.getPedido());
+//		itemPedido.setProduto(itemPedidoDTO.getProduto());
+//		
+//		return itemPedido;
+//	}
 	
-	public ItemPedidoDTO toDTO(ItemPedido itemPedido) {
-		ItemPedidoDTO itemPedidoDTO = new ItemPedidoDTO();
-		
-		itemPedidoDTO.setIdItemPedido(itemPedido.getIdItemPedido());
-		itemPedidoDTO.setQuantidade(itemPedido.getQuantidade());
-		itemPedidoDTO.setPrecoVenda(itemPedido.getPrecoVenda());
-		itemPedidoDTO.setPercentualDesconto(itemPedido.getPercentualDesconto());
-		itemPedidoDTO.setValorBruto(itemPedido.getValorBruto());
-		itemPedidoDTO.setValorLiquido(itemPedido.getValorLiquido());
-		itemPedidoDTO.setPedido(itemPedido.getPedido());
-		itemPedidoDTO.setProduto(itemPedido.getProduto());
-		
-		return itemPedidoDTO;
-	}
-	
-	public ItemPedidoResumoDTO toItemPedidoResumoDTO(ItemPedido itemPedido) {
-		ItemPedidoResumoDTO itemPedidoResumoDTO = new ItemPedidoResumoDTO();
-		
-		
-		BeanUtils.copyProperties(itemPedido, itemPedidoResumoDTO);
-		
-		return itemPedidoResumoDTO;
-	}
+//	public ItemPedidoDTO toDTO(ItemPedido itemPedido) {
+//		ItemPedidoDTO itemPedidoDTO = new ItemPedidoDTO();
+//		
+//		itemPedidoDTO.setIdItemPedido(itemPedido.getIdItemPedido());
+//		itemPedidoDTO.setQuantidade(itemPedido.getQuantidade());
+//		itemPedidoDTO.setPrecoVenda(itemPedido.getPrecoVenda());
+//		itemPedidoDTO.setPercentualDesconto(itemPedido.getPercentualDesconto());
+//		itemPedidoDTO.setValorBruto(itemPedido.getValorBruto());
+//		itemPedidoDTO.setValorLiquido(itemPedido.getValorLiquido());
+//		itemPedidoDTO.setPedido(itemPedido.getPedido());
+//		itemPedidoDTO.setProduto(itemPedido.getProduto());
+//		
+//		return itemPedidoDTO;
+//	}
+//	
+//	public ItemPedidoResumoDTO toItemPedidoResumoDTO(ItemPedido itemPedido) {
+//		ItemPedidoResumoDTO itemPedidoResumoDTO = new ItemPedidoResumoDTO();
+//		
+//		
+//		BeanUtils.copyProperties(itemPedido, itemPedidoResumoDTO);
+//		
+//		return itemPedidoResumoDTO;
+//	}
 	
 }

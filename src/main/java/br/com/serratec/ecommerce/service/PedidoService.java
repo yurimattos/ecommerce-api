@@ -1,14 +1,10 @@
 package br.com.serratec.ecommerce.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.residencia.biblioteca.dto.PedidoDTO;
-import br.com.residencia.biblioteca.dto.PedidoResumoDTO;
 import br.com.serratec.ecommerce.entity.Pedido;
 import br.com.serratec.ecommerce.repository.PedidoRepository;
 
@@ -64,42 +60,42 @@ public class PedidoService {
 		return getPedidoById(id);
 	}
 	
-	public Pedido toEntidade(PedidoDTO pedidoDTO ) {
-		Pedido pedido = new Pedido();
-		
-		
-		pedido.setDataPedido(pedidoDTO.getDataPedido());
-		pedido.setDataEntrega(pedidoDTO.getDataEntrega());
-		pedido.setDataEnvio(pedidoDTO.getDataEnvio());
-		pedido.setStatus(pedidoDTO.getStatus());
-		pedido.setValorToral(pedidoDTO.getValorTotal());
-		
-		return pedido;
-	}
+//	public Pedido toEntidade(PedidoDTO pedidoDTO ) {
+//		Pedido pedido = new Pedido();
+//		
+//		
+//		pedido.setDataPedido(pedidoDTO.getDataPedido());
+//		pedido.setDataEntrega(pedidoDTO.getDataEntrega());
+//		pedido.setDataEnvio(pedidoDTO.getDataEnvio());
+//		pedido.setStatus(pedidoDTO.getStatus());
+//		pedido.setValorToral(pedidoDTO.getValorTotal());
+//		
+//		return pedido;
+//	}
 	
-	public PedidoDTO toDTO(Pedido pedido) {
-		PedidoDTO pedidoDTO = new PedidoDTO();
-				
-		pedidoDTO.setIdPedido(pedido.getIdPedido());
-		pedidoDTO.setDataPedido(pedido.getDataPedido());
-		pedidoDTO.setDataEntrega(pedido.getDataEntrega());
-		pedidoDTO.setDataEnvio(pedido.getDataEnvio());
-		pedidoDTO.setStatus(pedido.getStatus());
-		pedidoDTO.setValorToral(pedido.getValorTotal());
-		pedidoDTO.setCliente(pedido.getCliente());
-		
-		
-		//BeanUtils.copyProperties(pedido, pedidoDTO);
-		
-		return pedidoDTO;
-	}
+//	public PedidoDTO toDTO(Pedido pedido) {
+//		PedidoDTO pedidoDTO = new PedidoDTO();
+//				
+//		pedidoDTO.setIdPedido(pedido.getIdPedido());
+//		pedidoDTO.setDataPedido(pedido.getDataPedido());
+//		pedidoDTO.setDataEntrega(pedido.getDataEntrega());
+//		pedidoDTO.setDataEnvio(pedido.getDataEnvio());
+//		pedidoDTO.setStatus(pedido.getStatus());
+//		pedidoDTO.setValorToral(pedido.getValorTotal());
+//		pedidoDTO.setCliente(pedido.getCliente());
+//		
+//		
+//		//BeanUtils.copyProperties(pedido, pedidoDTO);
+//		
+//		return pedidoDTO;
+//	}
 	
-	public PedidoResumoDTO toPedidoResumoDTO(Pedido pedido) {
-		PedidoResumoDTO pedidoResumoDTO = new PedidoResumoDTO();
-		
-	
-		BeanUtils.copyProperties(pedido, pedidoResumoDTO);
-		
-		return pedidoResumoDTO;
-	}
+//	public PedidoResumoDTO toPedidoResumoDTO(Pedido pedido) {
+//		PedidoResumoDTO pedidoResumoDTO = new PedidoResumoDTO();
+//		
+//	
+//		BeanUtils.copyProperties(pedido, pedidoResumoDTO);
+//		
+//		return pedidoResumoDTO;
+//	}
 }
