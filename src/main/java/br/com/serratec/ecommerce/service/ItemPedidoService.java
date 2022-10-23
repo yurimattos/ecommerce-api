@@ -1,9 +1,7 @@
 package br.com.serratec.ecommerce.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +17,7 @@ public class ItemPedidoService {
 	public List<ItemPedido> getAllItemPedidos(){
 		return itemPedidoRepository.findAll();
 	}
+<<<<<<< HEAD
 	
 //	public List<ItemPedidoDTO> getAllItemPedidosDTO(){
 //		List<ItemPedido> listaItemPedido = itemPedidoRepository.findAll();
@@ -31,6 +30,22 @@ public class ItemPedidoService {
 //		
 //		return listaItemPedidoDTO;
 //	}
+=======
+
+/*
+	public List<ItemPedidoDTO> getAllItemPedidosDTO(){
+		List<ItemPedido> listaItemPedido = itemPedidoRepository.findAll();
+		List<ItemPedidoDTO> listaItemPedidoDTO = new ArrayList<>();
+		
+		for(ItemPedido itemPedido: listaItemPedido) {
+			ItemPedidoDTO itemPedidoDTO = toDTO(itemPedido);
+			listaItemPedidoDTO.add(itemPedidoDTO);
+		}
+		
+		return listaItemPedidoDTO;
+	}
+*/
+>>>>>>> 7a22df5d4842d4946f5e08216b335e2530228a81
 	
 	public ItemPedido getItemPedidoById(Integer id) {
 		//return itemPedidoRepository.findById(id).get();
@@ -64,6 +79,7 @@ public class ItemPedidoService {
 		return getItemPedidoById(id);
 	}
 	
+<<<<<<< HEAD
 //	public ItemPedido toEntidade(ItemPedidoDTO itemPedidoDTO ) {
 //		ItemPedido itemPedido = new ItemPedido();
 //		
@@ -102,5 +118,47 @@ public class ItemPedidoService {
 //		
 //		return itemPedidoResumoDTO;
 //	}
+=======
+/*	
+	public ItemPedido toEntidade(ItemPedidoDTO itemPedidoDTO ) {
+		ItemPedido itemPedido = new ItemPedido();
+		
+		itemPedido.setIdItemPedido(itemPedidoDTO.getIdItemPedido());
+		itemPedido.setQuantidade(itemPedidoDTO.getQuantidade());
+		itemPedido.setPrecoVenda(itemPedidoDTO.getPrecoVenda());
+		itemPedido.setPercentualDesconto(itemPedidoDTO.getPercentualDesconto());
+		itemPedido.setValorBruto(itemPedidoDTO.getValorBruto());
+		itemPedido.setValorLiquido(itemPedidoDTO.getValorLiquido());
+		itemPedido.setPedido(itemPedidoDTO.getPedido());
+		itemPedido.setProduto(itemPedidoDTO.getProduto());
+		
+		return itemPedido;
+	}
+	
+	public ItemPedidoDTO toDTO(ItemPedido itemPedido) {
+		ItemPedidoDTO itemPedidoDTO = new ItemPedidoDTO();
+		
+		itemPedidoDTO.setIdItemPedido(itemPedido.getIdItemPedido());
+		itemPedidoDTO.setQuantidade(itemPedido.getQuantidade());
+		itemPedidoDTO.setPrecoVenda(itemPedido.getPrecoVenda());
+		itemPedidoDTO.setPercentualDesconto(itemPedido.getPercentualDesconto());
+		itemPedidoDTO.setValorBruto(itemPedido.getValorBruto());
+		itemPedidoDTO.setValorLiquido(itemPedido.getValorLiquido());
+		itemPedidoDTO.setPedido(itemPedido.getPedido());
+		itemPedidoDTO.setProduto(itemPedido.getProduto());
+		
+		return itemPedidoDTO;
+	}
+	
+	public ItemPedidoResumoDTO toItemPedidoResumoDTO(ItemPedido itemPedido) {
+		ItemPedidoResumoDTO itemPedidoResumoDTO = new ItemPedidoResumoDTO();
+		
+		
+		BeanUtils.copyProperties(itemPedido, itemPedidoResumoDTO);
+		
+		return itemPedidoResumoDTO;
+	}
+*/
+>>>>>>> 7a22df5d4842d4946f5e08216b335e2530228a81
 	
 }
