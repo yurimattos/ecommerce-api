@@ -9,6 +9,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
+@JsonIdentityInfo(
+		generator = ObjectIdGenerators.PropertyGenerator.class,
+		property = "idItemPedido")
 @Entity
 @Table(name = "item_pedido")
 public class ItemPedido {
@@ -34,11 +40,11 @@ public class ItemPedido {
 	
 	@ManyToOne
 	@JoinColumn(name = "id_pedido", referencedColumnName = "id_pedido")
-	Pedido pedido;
+	private Pedido pedido;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_produto", referencedColumnName = "id_produto")
-	Produto produto;
+	private Produto produto;
 
 	public Integer getIdItemPedido() {
 		return idItemPedido;

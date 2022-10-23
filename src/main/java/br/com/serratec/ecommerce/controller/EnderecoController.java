@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.serratec.ecommerce.entity.Categoria;
 import br.com.serratec.ecommerce.entity.Endereco;
 import br.com.serratec.ecommerce.service.EnderecoService;
 

@@ -1,6 +1,7 @@
 package br.com.serratec.ecommerce.entity;
 
 import java.time.Instant;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,8 +10,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
+@JsonIdentityInfo(
+		generator = ObjectIdGenerators.PropertyGenerator.class,
+		property = "idPedido")
 @Entity
 @Table(name = "pedido")
 public class Pedido {
@@ -37,6 +45,10 @@ public class Pedido {
 	@ManyToOne
 	@JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
 	private Cliente cliente;
+	
+	@OneToMany(mappedBy = "pedido")
+	private List<ItemPedido> itemPedidos;
+	
 
 	public Integer getIdPedido() {
 		return idPedido;
@@ -93,6 +105,15 @@ public class Pedido {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
+
+	public List<ItemPedido> getItemPedidos() {
+		return itemPedidos;
+	}
+
+	public void setItemPedidos(List<ItemPedido> itemPedidos) {
+		this.itemPedidos = itemPedidos;
+	}
+	
 	
 	
 }

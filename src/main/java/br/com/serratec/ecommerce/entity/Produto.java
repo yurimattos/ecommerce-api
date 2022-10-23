@@ -14,6 +14,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
+@JsonIdentityInfo(
+		generator = ObjectIdGenerators.PropertyGenerator.class,
+		property = "idProduto")
 @Entity
 @Table(name = "produto")
 public class Produto {
@@ -44,9 +50,10 @@ public class Produto {
 	@JoinColumn(name = "categoria", referencedColumnName = "id_categoria")
 	private Categoria categoria;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "produto")
 	private List<ItemPedido> itemPedidos;
-
+	
+	
 	public Integer getIdProduto() {
 		return idProduto;
 	}

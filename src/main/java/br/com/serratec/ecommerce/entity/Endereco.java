@@ -10,8 +10,13 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
+@JsonIdentityInfo(
+		generator = ObjectIdGenerators.PropertyGenerator.class,
+		property = "idEndereco")
 @Entity
 @Table(name = "endereco")
 public class Endereco {
@@ -42,7 +47,6 @@ public class Endereco {
 	@Column(name = "uf")
 	private String uf;
 	
-	@JsonIgnore
 	@OneToOne()
 	@JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
 	private Cliente cliente;
