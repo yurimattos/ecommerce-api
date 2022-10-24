@@ -1,8 +1,5 @@
 package br.com.serratec.ecommerce.dto;
 
-import br.com.serratec.ecommerce.entity.Pedido;
-import br.com.serratec.ecommerce.entity.Produto;
-
 public class ItemPedidoDTO {
 
 	private Integer idItemPedido;
