@@ -11,6 +11,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @JsonIdentityInfo(
@@ -25,8 +26,8 @@ public class Endereco {
 	private Integer idEndereco;
 	
 	@NotBlank(message = "O CEP deve ser informado")
-	@Column(name = "cep", nullable = false, length = 8)
-	private Integer cep;
+	@Column(name = "cep", nullable = false)
+	private String cep;
 	
 	@Column(name = "rua")
 	private String rua;
@@ -46,6 +47,7 @@ public class Endereco {
 	@Column(name = "uf")
 	private String uf;
 	
+	@JsonIgnore
 	@OneToOne()
 	@JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
 	private Cliente cliente;
@@ -58,11 +60,11 @@ public class Endereco {
 		this.idEndereco = idEndereco;
 	}
 
-	public Integer getCep() {
+	public String getCep() {
 		return cep;
 	}
 
-	public void setCep(Integer cep) {
+	public void setCep(String cep) {
 		this.cep = cep;
 	}
 

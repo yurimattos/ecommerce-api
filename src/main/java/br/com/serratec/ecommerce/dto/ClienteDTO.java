@@ -10,7 +10,10 @@ public class ClienteDTO {
 	private String cpf;
 	private String telefone;
 	private Instant dataNascimento;
-	private String endereco;
+	private String cep;
+	private String complemento;
+	private Integer numero;
+	private Integer idEndereco;
 	
 	
 	public Integer getIdCliente() {
@@ -49,11 +52,29 @@ public class ClienteDTO {
 	public void setDataNascimento(Instant dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
-	public String getEndereco() {
-		return endereco;
-	}
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
-	}
 	
+	public String getCep() {
+		return cep;
+	}
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+	public String getComplemento() {
+		return complemento;
+	}
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+	public Integer getNumero() {
+		return numero;
+	}
+	public void setNumero(Integer numero) {
+		this.numero = numero;
+	}
+	public Integer getIdEndereco() {
+		return idEndereco;
+	}
+	public void setIdEndereco(Integer idEndereco) {
+		this.idEndereco = idEndereco;
+	}
 }

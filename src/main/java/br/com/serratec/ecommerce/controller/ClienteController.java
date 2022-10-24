@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.serratec.ecommerce.dto.ClienteDTO;
 import br.com.serratec.ecommerce.entity.Cliente;
 import br.com.serratec.ecommerce.service.ClienteService;
 
@@ -28,6 +29,11 @@ public class ClienteController {
 		return new ResponseEntity<>(clienteService.getAllClientes(), HttpStatus.OK);
 	}
 	
+	@GetMapping("/dto")
+	public ResponseEntity<List<ClienteDTO>> getAllClientesDTO(){
+		return new ResponseEntity<>(clienteService.getAllClientesDTO(), HttpStatus.OK);
+	}
+	
 	@GetMapping("/{id}")
 	public ResponseEntity<Cliente> getClienteById(@PathVariable Integer id){
 		Cliente cliente = clienteService.getClienteById(id);
@@ -39,19 +45,28 @@ public class ClienteController {
 		}
 	}
 	
+//	@PostMapping()
+//	public ResponseEntity<Cliente> saveCliente(@RequestBody Cliente cliente){
+////		try {
+//			return new ResponseEntity<>(clienteService.saveCliente(cliente), HttpStatus.CREATED);
+////		} catch (Exception ex) {
+////			throw new MethodArgumentNotValidException("        ");
+////		}
+//	}
+	
 	@PostMapping()
-	public ResponseEntity<Cliente> saveCliente(@RequestBody Cliente cliente){
+	public ResponseEntity<ClienteDTO> saveClienteDTO(@RequestBody ClienteDTO clienteDTO){
 //		try {
-			return new ResponseEntity<>(clienteService.saveCliente(cliente), HttpStatus.CREATED);
+			return new ResponseEntity<>(clienteService.saveClienteDTO(clienteDTO), HttpStatus.CREATED);
 //		} catch (Exception ex) {
-//			throw new MethodArgumentNotValidException("Informe o CPF");
+//			throw new MethodArgumentNotValidException("         ");
 //		}
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Cliente> updateCliente(@RequestBody Cliente cliente, @PathVariable Integer id) {
+	public ResponseEntity<ClienteDTO> updateCliente(@RequestBody ClienteDTO clienteDTO, @PathVariable Integer id) {
 		if(clienteService.getClienteById(id) != null) {
-			return new ResponseEntity<>(clienteService.updateCliente(id, cliente), HttpStatus.OK);
+			return new ResponseEntity<>(clienteService.updateCliente(clienteDTO, id), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}

@@ -3,13 +3,14 @@ package br.com.serratec.ecommerce.dto;
 public class EnderecoDTO {
 
 	private Integer idEndereco;
-	private Integer cep;
-	private String rua;
+	private String cep;
+	private String logradouro;
 	private String bairro;
-	private String cidade;
+	private String localidade;
+	private String uf;
 	private Integer numero;
 	private String complemento;
-	private String uf;
+	
 	
 	
 	public Integer getIdEndereco() {
@@ -18,17 +19,18 @@ public class EnderecoDTO {
 	public void setIdEndereco(Integer idEndereco) {
 		this.idEndereco = idEndereco;
 	}
-	public Integer getCep() {
+	public String getCep() {
 		return cep;
 	}
-	public void setCep(Integer cep) {
+	public void setCep(String cep) {
 		this.cep = cep;
 	}
-	public String getRua() {
-		return rua;
+	
+	public String getLogradouro() {
+		return logradouro;
 	}
-	public void setRua(String rua) {
-		this.rua = rua;
+	public void setLogradouro(String logradouro) {
+		this.logradouro = logradouro;
 	}
 	public String getBairro() {
 		return bairro;
@@ -36,11 +38,17 @@ public class EnderecoDTO {
 	public void setBairro(String bairro) {
 		this.bairro = bairro;
 	}
-	public String getCidade() {
-		return cidade;
+	public String getLocalidade() {
+		return localidade;
 	}
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
+	public void setLocalidade(String localidade) {
+		this.localidade = localidade;
+	}
+	public String getUf() {
+		return uf;
+	}
+	public void setUf(String uf) {
+		this.uf = uf;
 	}
 	public Integer getNumero() {
 		return numero;
@@ -54,10 +62,5 @@ public class EnderecoDTO {
 	public void setComplemento(String complemento) {
 		this.complemento = complemento;
 	}
-	public String getUf() {
-		return uf;
-	}
-	public void setUf(String uf) {
-		this.uf = uf;
-	}
+	
 }

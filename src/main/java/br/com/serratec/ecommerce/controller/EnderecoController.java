@@ -65,4 +65,9 @@ public class EnderecoController {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
+	
+//	@GetMapping("/cep/{cep}")
+//	public ResponseEntity<Endereco> saveEnderecoFromApi(@PathVariable String cep){
+//		return new ResponseEntity<>(enderecoService.saveEnderecoFromApi(cep), HttpStatus.CREATED);
+//	}
 }
