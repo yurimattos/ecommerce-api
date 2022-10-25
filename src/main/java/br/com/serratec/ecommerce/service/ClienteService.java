@@ -3,7 +3,6 @@ package br.com.serratec.ecommerce.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -59,35 +58,28 @@ public class ClienteService {
 		return clienteDTO;
 	}
 	
-	public ClienteDTO saveClienteTeste(ClienteDTO clienteDTO) {
-		clienteDTO.setCpf(clienteDTO.getCpf());
-		clienteDTO.setTelefone(clienteDTO.getTelefone());
-
-
-		Cliente novoCliente = clienteRepository.save(toEntity(clienteDTO));
-		EnderecoDTO endereco = enderecoService.saveEnderecoDTO(novoCliente.getIdCliente(), clienteDTO.getCep(),
-					clienteDTO.getNumero(), clienteDTO.getComplemento());
-
-		clienteDTO = toDto(clienteRepository.save(novoCliente));
-		clienteDTO.setIdEndereco(endereco.getIdEndereco());
-
-			return clienteDTO;
-		
-
-	}
-	
-	//Falta finalizar
 	public ClienteDTO updateCliente(ClienteDTO clienteDTO, Integer id) {
 		
-		Cliente clienteBD = clienteRepository.existsById(clienteDTO.getIdCliente())
-				? clienteRepository.findById(clienteDTO.getIdCliente()).get()
-				: null;
-
-		Endereco endereco = clienteBD.getEndereco();
-		ClienteDTO novoClienteDTO = toDto(saveCliente(toEntity(clienteDTO)));
-		enderecoRepository.deleteById(endereco.getIdEndereco());
-
-		return novoClienteDTO;
+		Cliente clienteExistenteNoBanco = getClienteById(id);
+		ClienteDTO clienteAtualizadoDTO = new ClienteDTO();
+		
+		enderecoRepository.deleteById(clienteExistenteNoBanco.getEndereco().getIdEndereco());
+		
+		Endereco enderecoNovo = enderecoService.saveEnderecoFromApi(clienteDTO.getCep(), clienteDTO.getComplemento(), clienteDTO.getNumero(), clienteExistenteNoBanco);
+		
+		if(clienteExistenteNoBanco != null) {
+			clienteDTO.setIdCliente(clienteExistenteNoBanco.getIdCliente());
+			
+			clienteExistenteNoBanco = toEntity(clienteDTO);
+			
+			Cliente clienteAtualizado = clienteRepository.save(clienteExistenteNoBanco);
+			
+			clienteAtualizadoDTO = toDto(clienteAtualizado);
+			
+			clienteAtualizadoDTO.setIdEndereco(enderecoNovo.getIdEndereco());
+		}
+		
+		return clienteAtualizadoDTO;
 	}
 	
 	public Cliente deleteCliente(Integer id) {

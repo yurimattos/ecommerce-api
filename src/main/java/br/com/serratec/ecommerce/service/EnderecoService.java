@@ -49,20 +49,6 @@ public class EnderecoService {
 		return enderecoNovo;
 	}
 	
-	public EnderecoDTO saveEnderecoTeste(Integer idCliente, String cep, String numero, String complemento) {
-		Endereco endereco = cepDTOParaEndereco(consultaCepApi(cep));
-		endereco.setComplemento(complemento);
-		endereco.setCep(cep);
-
-		EnderecoDTO novoEndereco = toDto(enderecoRepository.save(endereco));
-
-		Cliente cliente = clienteRepository.findById(idCliente).get();
-		cliente.setEndereco(endereco);
-		cliente.getEndereco().setIdEndereco(endereco.getIdEndereco());
-
-		return novoEndereco;
-	}
-	
 	public Endereco updateEndereco(Integer id, Endereco endereco) {
 		Endereco enderecoExistenteNoBanco = getEnderecoById(id);
 		
@@ -112,18 +98,7 @@ public class EnderecoService {
 		return enderecoRepository.save(endereco);
 	}
 	
-	private Endereco cepDTOParaEndereco(EnderecoDTO enderecoDTO) {
-		Endereco endereco = new Endereco();
-		endereco.setBairro(enderecoDTO.getBairro());
-		endereco.setCep(enderecoDTO.getCep());
-		endereco.setCidade(enderecoDTO.getLocalidade());
-		endereco.setRua(enderecoDTO.getLogradouro());
-		endereco.setUf(enderecoDTO.getUf());
-
-		return endereco;
-	}
-	
-	private Endereco toEntity(EnderecoDTO enderecoDTO) {
+	public Endereco toEntity(EnderecoDTO enderecoDTO) {
 		Endereco endereco = new Endereco();
 
 		endereco.setBairro(enderecoDTO.getBairro());
