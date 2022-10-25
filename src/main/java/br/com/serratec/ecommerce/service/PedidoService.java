@@ -2,8 +2,6 @@ package br.com.serratec.ecommerce.service;
 
 import java.util.List;
 
-import javax.mail.MessagingException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,9 +13,6 @@ public class PedidoService {
 
 	@Autowired
 	PedidoRepository pedidoRepository;
-	
-	@Autowired
-	EmailService emailService;
 	
 	public List<Pedido> getAllPedidos(){
 		return pedidoRepository.findAll();
@@ -45,15 +40,8 @@ public class PedidoService {
 	}
 	
 	public Pedido savePedido(Pedido pedido) {
-
-		try {
-			emailService.sendMail("grupoumecommerce@gmail.com", "listagem do pedido", "lista pedidos");
-		} catch (MessagingException e) {
-			e.printStackTrace();
-		}
 		return pedidoRepository.save(pedido);
 	}
-	
 	
 	
 	
