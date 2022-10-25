@@ -196,10 +196,11 @@ public class ProdutoService {
 	}
 
 	public Produto deleteProduto(Integer id) {
-		produtoRepository.deleteById(id);
-		return getProdutoById(id);
+		if(getProdutoById(id) != null) {
+			produtoRepository.deleteById(id);
 	}
-
+		return null;
+	}
 }
 	
 //	public List<CategoriaDTO> getAllCategoriasDTO(){

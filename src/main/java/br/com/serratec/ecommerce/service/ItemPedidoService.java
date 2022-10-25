@@ -60,14 +60,14 @@ public class ItemPedidoService {
 		
 		ItemPedido itemPedidoExistenteNoBanco = getItemPedidoById(id);
 		
-//		itemPedidoExistenteNoBanco.setIdItemPedido(itemPedido.getIdItemPedido());
+		itemPedidoExistenteNoBanco.setIdItemPedido(itemPedido.getIdItemPedido());
 		itemPedidoExistenteNoBanco.setQuantidade(itemPedido.getQuantidade());
 		itemPedidoExistenteNoBanco.setPrecoVenda(itemPedido.getPrecoVenda());
 		itemPedidoExistenteNoBanco.setPercentualDesconto(itemPedido.getPercentualDesconto());
 		itemPedidoExistenteNoBanco.setValorBruto(itemPedido.getValorBruto());
 		itemPedidoExistenteNoBanco.setValorLiquido(itemPedido.getValorLiquido());
-//		itemPedidoExistenteNoBanco.setPedido(itemPedido.getPedido());
-//		itemPedidoExistenteNoBanco.setProduto(itemPedido.getProduto());
+		itemPedidoExistenteNoBanco.setPedido(itemPedido.getPedido());
+		itemPedidoExistenteNoBanco.setProduto(itemPedido.getProduto());
 		
 		
 		return itemPedidoRepository.save(itemPedidoExistenteNoBanco);	
@@ -75,7 +75,7 @@ public class ItemPedidoService {
 
 	public ItemPedido deleteItemPedido(Integer id) {
 		itemPedidoRepository.deleteById(id);
-		return getItemPedidoById(id);
+		return null;
 	}
 	
 

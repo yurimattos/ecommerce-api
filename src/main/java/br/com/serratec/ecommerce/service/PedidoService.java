@@ -57,7 +57,7 @@ public class PedidoService {
 
 	public Pedido deletePedido(Integer id) {
 		pedidoRepository.deleteById(id);
-		return getPedidoById(id);
+		return null;
 	}
 	
 
